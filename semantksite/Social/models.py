@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Photo(models.Model):
     url = models.CharField(max_length=255)
@@ -31,3 +32,11 @@ class Location(models.Model):
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
     def __str__(self):
         return f'{self.city}'
+
+class CustomUser(AbstractUser):
+    USER_ROLES = (
+        ('admin', 'Admin'),
+        ('moderator', 'Moderator'),
+        ('user', 'User'),
+    )
+    role = models.CharField(max_length=20, choices=USER_ROLES, default='user', verbose_name='Role')

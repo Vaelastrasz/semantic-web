@@ -133,6 +133,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+        'semantksite.permissions.CustomUserPermission'
     ]
 }
 
@@ -145,3 +146,5 @@ SWAGGER_SETTINGS = {
         }
     }
 }
+
+AUTH_USER_MODEL = 'Social.CustomUser'
