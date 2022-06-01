@@ -126,5 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'base.pagination.CustomPageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'semantksite.pagination.CustomPageNumberPagination',
 }
