@@ -10,7 +10,7 @@ class PersonCreationView(generics.CreateAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
 
-class PersonUpdateView(generics.RetrieveUpdateAPIView):
+class PersonUpdateView(generics.UpdateAPIView):
     lookup_field = 'id'
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
@@ -34,7 +34,7 @@ class PhotoCreationView(generics.CreateAPIView):
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
 
-class PhotoUpdateView(generics.RetrieveUpdateAPIView):
+class PhotoUpdateView(generics.UpdateAPIView):
     lookup_field = 'id'
     serializer_class = PhotoSerializer
     queryset = Photo.objects.all()
@@ -58,7 +58,7 @@ class EventCreationView(generics.CreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
-class EventUpdateView(generics.RetrieveUpdateAPIView):
+class EventUpdateView(generics.UpdateAPIView):
     lookup_field = 'id'
     serializer_class = EventSerializer
     queryset = Event.objects.all()
@@ -82,7 +82,7 @@ class LocationCreationView(generics.CreateAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
 
-class LocationUpdateView(generics.RetrieveUpdateAPIView):
+class LocationUpdateView(generics.UpdateAPIView):
     lookup_field = 'id'
     serializer_class = LocationSerializer
     queryset = Location.objects.all()
