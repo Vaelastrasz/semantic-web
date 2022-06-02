@@ -16,6 +16,28 @@ class Person(models.Model):
     def __str__(self):
         return f'{self.firstname} {self.lastname}'
 
+class Promotion(models.Model):
+    startdate = models.DateTimeField()
+    enddate = models.DateTimeField()
+    participants = models.ManyToManyField(Person)
+    discount = models.IntegerField()
+    name = models.CharField(max_length=255)
+    winnersamount = models.IntegerField()
+    def __str__(self):
+        return f'{self.name}'
+
+class Holiday(models.Model):
+    date = models.DateTimeField()
+    name = models.CharField(max_length=255)
+    def __str__(self):
+        return f'{self.name}'
+
+class Price(models.Model):
+    amount = models.IntegerField()
+    currency = models.CharField(max_length=255)
+    def __str__(self):
+        return f'{self.name} {self.currency}'
+
 class Event(models.Model):
     startdate = models.DateTimeField()
     enddate = models.DateTimeField()
@@ -23,6 +45,9 @@ class Event(models.Model):
     likes = models.IntegerField()
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
     eventname = models.CharField(max_length=255)
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE)
+    holiday = models.ForeignKey(Holiday, on_delete=models.CASCADE)
+    price = models.ForeignKey(Price, on_delete=models.CASCADE)
     def __str__(self):
         return f'{self.eventname}'
 
